@@ -1,0 +1,50 @@
+# Keil / MDK 编译生成中间文件与输出产物
+*.o
+*.d
+*.crf
+*.axf
+*.htm
+*.lnp
+*.sct
+*.map
+*.lst
+*.__i
+*._ia
+*.dep
+*.bak
+*.orig
+*.tmp
+*.iex
+*.tra
+*.mpf
+*.mpj
+*.obj
+*.omf
+*.plg
+*.rpt
+JLinkLog.txt
+build.log
+
+# Keil 用户个人界面与视图布局文件 (避免个人私有设置污染仓库)
+*.uvguix.*
+*.uvgui.*
+*.Administrator
+
+# Keil 编译产物目录
+UWR_Class/Objects/
+UWR_Class/Listings/
+
+# Python 缓存与字节码
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# 操作系统与通用临时文件
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# 编辑器私有配置
+.vscode/
+.idea/

@@ -1,0 +1,2008 @@
+{
+  "version": "2.0.0",
+  "projectId": "edc15fb1cdbd7096f0891b56fa658ac507f32120a94f03b0c86b13b8fde89d52",
+  "components": {
+    "gge42": {
+      "props": {
+        "Add into BOM": "yes",
+        "Convert to PCB": "yes",
+        "Device": "06b53e3c7bf37131",
+        "Footprint": "fe7f7f666bd7c186",
+        "PCB Layer": "Default",
+        "Symbol": "5f7b9835b8d6fc96",
+        "Designator": "H8",
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I18",
+        "Name": "Lora",
+        "Unique ID": "gge42",
+        "Supplier Part": "C124418",
+        "Supplier Footprint": "插件",
+        "3D Model": "4c31987253bc43b9b52c17be2a6d3f91",
+        "3D Model Title": "HDR-TH_7P-P2.54-F-LI-1X7P",
+        "3D Model Transform": "715.7466,94.488,0,0,0,0,0,0,-118.11",
+        "JLCPCB Part Class": "扩展库",
+        "Description": "",
+        "DeviceName": "HDR-F_2.54_1x7P",
+        "FootprintName": "HDR-TH_7P-P2.54-V-F"
+      },
+      "altLibs": {
+        "devices": [],
+        "footprints": []
+      },
+      "pinInfoMap": {
+        "1": {
+          "name": "1",
+          "number": "1",
+          "net": "",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "1"
+          }
+        },
+        "2": {
+          "name": "2",
+          "number": "2",
+          "net": "",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "2"
+          }
+        },
+        "3": {
+          "name": "3",
+          "number": "3",
+          "net": "PA2",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "3"
+          }
+        },
+        "4": {
+          "name": "4",
+          "number": "4",
+          "net": "PA3",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "4"
+          }
+        },
+        "5": {
+          "name": "5",
+          "number": "5",
+          "net": "",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "5"
+          }
+        },
+        "6": {
+          "name": "6",
+          "number": "6",
+          "net": "+5V",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "6"
+          }
+        },
+        "7": {
+          "name": "7",
+          "number": "7",
+          "net": "GND",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "7"
+          }
+        }
+      }
+    },
+    "gge3": {
+      "props": {
+        "Add into BOM": "yes",
+        "Convert to PCB": "yes",
+        "Designator": "z2",
+        "Device": "2961e488754e531a",
+        "Footprint": "74be59e0731db355",
+        "PCB Layer": "Default",
+        "Symbol": "922b7df521c0c107",
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I19",
+        "Name": "",
+        "Unique ID": "gge3",
+        "Supplier Part": "C50984",
+        "Supplier Footprint": "插件",
+        "3D Model": "db7015f7ad9d48b8a3b1188db02e3429",
+        "3D Model Title": "HDR-F-2.54_1x20",
+        "3D Model Transform": "1999.996,100,0,0,0,0,0,0,-118.11",
+        "JLCPCB Part Class": "扩展库",
+        "Description": "",
+        "DeviceName": "HDR-F_2.54_1x20P",
+        "FootprintName": "HDR-TH_20P-P2.54-V-F"
+      },
+      "altLibs": {
+        "devices": [],
+        "footprints": []
+      },
+      "pinInfoMap": {
+        "1": {
+          "name": "1",
+          "number": "1",
+          "net": "PB12",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "1"
+          }
+        },
+        "2": {
+          "name": "2",
+          "number": "2",
+          "net": "PB13",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "2"
+          }
+        },
+        "3": {
+          "name": "3",
+          "number": "3",
+          "net": "PB14",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "3"
+          }
+        },
+        "4": {
+          "name": "4",
+          "number": "4",
+          "net": "PB15",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "4"
+          }
+        },
+        "5": {
+          "name": "5",
+          "number": "5",
+          "net": "PA8",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "5"
+          }
+        },
+        "6": {
+          "name": "6",
+          "number": "6",
+          "net": "PA9",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "6"
+          }
+        },
+        "7": {
+          "name": "7",
+          "number": "7",
+          "net": "PA10",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "7"
+          }
+        },
+        "8": {
+          "name": "8",
+          "number": "8",
+          "net": "PA11",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "8"
+          }
+        },
+        "9": {
+          "name": "9",
+          "number": "9",
+          "net": "PA12",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "9"
+          }
+        },
+        "10": {
+          "name": "10",
+          "number": "10",
+          "net": "PA15",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "10"
+          }
+        },
+        "11": {
+          "name": "11",
+          "number": "11",
+          "net": "PB3",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "11"
+          }
+        },
+        "12": {
+          "name": "12",
+          "number": "12",
+          "net": "PB4",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "12"
+          }
+        },
+        "13": {
+          "name": "13",
+          "number": "13",
+          "net": "PB5",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "13"
+          }
+        },
+        "14": {
+          "name": "14",
+          "number": "14",
+          "net": "PB6",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "14"
+          }
+        },
+        "15": {
+          "name": "15",
+          "number": "15",
+          "net": "PB7",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "15"
+          }
+        },
+        "16": {
+          "name": "16",
+          "number": "16",
+          "net": "PB8",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "16"
+          }
+        },
+        "17": {
+          "name": "17",
+          "number": "17",
+          "net": "PB9",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "17"
+          }
+        },
+        "18": {
+          "name": "18",
+          "number": "18",
+          "net": "+5V",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "18"
+          }
+        },
+        "19": {
+          "name": "19",
+          "number": "19",
+          "net": "GND",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "19"
+          }
+        },
+        "20": {
+          "name": "20",
+          "number": "20",
+          "net": "+3.3V",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "20"
+          }
+        }
+      }
+    },
+    "gge43": {
+      "props": {
+        "Add into BOM": "yes",
+        "Convert to PCB": "yes",
+        "Device": "b1ff16a851647d68",
+        "Footprint": "5108132c60978276",
+        "PCB Layer": "Default",
+        "Symbol": "af02b00958e64b0c",
+        "Designator": "U1",
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I20",
+        "Name": "={Manufacturer Part}",
+        "Unique ID": "gge43",
+        "LCSC Part Name": "立创·地阔星-STM32F103C8T6开发板",
+        "Supplier Part": "C22396880",
+        "Manufacturer": "立创开发板",
+        "Manufacturer Part": "LCKFB-DKX-STM32F103C8T6",
+        "Supplier Footprint": "-",
+        "JLCPCB Part Class": "Extended Part",
+        "Datasheet": "https://item.szlcsc.com/datasheet/LCKFB-DKX-STM32F103C8T6/24005615.html",
+        "Supplier": "LCSC",
+        "3D Model": "12c257eccf3b4e5baa9346e6693d8ea4|0819f05c4eef4c71ace90d822a990e87",
+        "3D Model Title": "CONN-TH_L53.3-W22.9_STM32F103C8T6-CARD",
+        "3D Model Transform": "2310.042,898.9982,0,0,0,0,90.551,0,-236.22",
+        "Description": "搭载Contex M3内核,程序存储容量64KB,RAM总容量20KB,最高72MHz主频,提供高效的计算能力和稳定的运行环境。",
+        "DeviceName": "LCKFB-DKX-STM32F103C8T6",
+        "FootprintName": "CONN-TH_L53.3-W22.9_STM32F103C8T6-CARD"
+      },
+      "altLibs": {
+        "devices": [],
+        "footprints": []
+      },
+      "pinInfoMap": {
+        "1": {
+          "name": "PB12",
+          "number": "1",
+          "net": "PB12",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "1"
+          }
+        },
+        "2": {
+          "name": "PB13",
+          "number": "2",
+          "net": "PB13",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "2"
+          }
+        },
+        "3": {
+          "name": "PB14",
+          "number": "3",
+          "net": "PB14",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "3"
+          }
+        },
+        "4": {
+          "name": "PB15",
+          "number": "4",
+          "net": "PB15",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "4"
+          }
+        },
+        "5": {
+          "name": "PA8",
+          "number": "5",
+          "net": "PA8",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "5"
+          }
+        },
+        "6": {
+          "name": "PA9",
+          "number": "6",
+          "net": "PA9",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "6"
+          }
+        },
+        "7": {
+          "name": "PA10",
+          "number": "7",
+          "net": "PA10",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "7"
+          }
+        },
+        "8": {
+          "name": "PA11",
+          "number": "8",
+          "net": "PA11",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "8"
+          }
+        },
+        "9": {
+          "name": "PA12",
+          "number": "9",
+          "net": "PA12",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "9"
+          }
+        },
+        "10": {
+          "name": "PA15",
+          "number": "10",
+          "net": "PA15",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "10"
+          }
+        },
+        "11": {
+          "name": "PB3",
+          "number": "11",
+          "net": "PB3",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "11"
+          }
+        },
+        "12": {
+          "name": "PB4",
+          "number": "12",
+          "net": "PB4",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "12"
+          }
+        },
+        "13": {
+          "name": "PB5",
+          "number": "13",
+          "net": "PB5",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "13"
+          }
+        },
+        "14": {
+          "name": "PB6",
+          "number": "14",
+          "net": "PB6",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "14"
+          }
+        },
+        "15": {
+          "name": "PB7",
+          "number": "15",
+          "net": "PB7",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "15"
+          }
+        },
+        "16": {
+          "name": "PB8",
+          "number": "16",
+          "net": "PB8",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "16"
+          }
+        },
+        "17": {
+          "name": "PB9",
+          "number": "17",
+          "net": "PB9",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "17"
+          }
+        },
+        "18": {
+          "name": "+5V",
+          "number": "18",
+          "net": "+5V",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "18"
+          }
+        },
+        "19": {
+          "name": "GND",
+          "number": "19",
+          "net": "GND",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "19"
+          }
+        },
+        "20": {
+          "name": "+3.3V",
+          "number": "20",
+          "net": "+3.3V",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "20"
+          }
+        },
+        "21": {
+          "name": "VBAT",
+          "number": "21",
+          "net": "VBAT",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "21"
+          }
+        },
+        "22": {
+          "name": "PC13",
+          "number": "22",
+          "net": "PC13",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "22"
+          }
+        },
+        "23": {
+          "name": "PC14",
+          "number": "23",
+          "net": "PC14",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "23"
+          }
+        },
+        "24": {
+          "name": "PC15",
+          "number": "24",
+          "net": "PC15",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "24"
+          }
+        },
+        "25": {
+          "name": "PA0",
+          "number": "25",
+          "net": "PA0",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "25"
+          }
+        },
+        "26": {
+          "name": "PA1",
+          "number": "26",
+          "net": "PA1",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "26"
+          }
+        },
+        "27": {
+          "name": "PA2",
+          "number": "27",
+          "net": "PA2",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "27"
+          }
+        },
+        "28": {
+          "name": "PA3",
+          "number": "28",
+          "net": "PA3",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "28"
+          }
+        },
+        "29": {
+          "name": "PA4",
+          "number": "29",
+          "net": "PA4",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "29"
+          }
+        },
+        "30": {
+          "name": "PA5",
+          "number": "30",
+          "net": "PA5",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "30"
+          }
+        },
+        "31": {
+          "name": "PA6",
+          "number": "31",
+          "net": "PA6",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "31"
+          }
+        },
+        "32": {
+          "name": "PA7",
+          "number": "32",
+          "net": "PA7",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "32"
+          }
+        },
+        "33": {
+          "name": "PB0",
+          "number": "33",
+          "net": "PB0",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "33"
+          }
+        },
+        "34": {
+          "name": "PB1",
+          "number": "34",
+          "net": "PB1",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "34"
+          }
+        },
+        "35": {
+          "name": "PB10",
+          "number": "35",
+          "net": "PB10",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "35"
+          }
+        },
+        "36": {
+          "name": "PB11",
+          "number": "36",
+          "net": "PB11",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "36"
+          }
+        },
+        "37": {
+          "name": "RESET",
+          "number": "37",
+          "net": "RESET",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "37"
+          }
+        },
+        "38": {
+          "name": "+3.3V",
+          "number": "38",
+          "net": "+3.3V",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "38"
+          }
+        },
+        "39": {
+          "name": "GND",
+          "number": "39",
+          "net": "GND",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "39"
+          }
+        },
+        "40": {
+          "name": "GND",
+          "number": "40",
+          "net": "GND",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "40"
+          }
+        }
+      }
+    },
+    "gge40": {
+      "props": {
+        "Add into BOM": "yes",
+        "Convert to PCB": "yes",
+        "Designator": "SCREW4",
+        "Device": "7467fa69517175b8",
+        "Footprint": "16cb4fda38fefb81",
+        "PCB Layer": "Default",
+        "Symbol": "0d8e94e080b476a2",
+        "Unique ID": "gge40",
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I22",
+        "Supplier Footprint": "插件",
+        "Description": "",
+        "Name": "",
+        "DeviceName": "M3螺丝",
+        "FootprintName": "M3螺丝"
+      },
+      "altLibs": {
+        "devices": [],
+        "footprints": []
+      },
+      "pinInfoMap": {
+        "1": {
+          "name": "1",
+          "number": "1",
+          "net": "GND",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "1"
+          }
+        }
+      }
+    },
+    "gge39": {
+      "props": {
+        "Add into BOM": "yes",
+        "Convert to PCB": "yes",
+        "Designator": "SCREW3",
+        "Device": "7467fa69517175b8",
+        "Footprint": "16cb4fda38fefb81",
+        "PCB Layer": "Default",
+        "Symbol": "0d8e94e080b476a2",
+        "Unique ID": "gge39",
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I23",
+        "Supplier Footprint": "插件",
+        "Description": "",
+        "Name": "",
+        "DeviceName": "M3螺丝",
+        "FootprintName": "M3螺丝"
+      },
+      "altLibs": {
+        "devices": [],
+        "footprints": []
+      },
+      "pinInfoMap": {
+        "1": {
+          "name": "1",
+          "number": "1",
+          "net": "GND",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "1"
+          }
+        }
+      }
+    },
+    "gge38": {
+      "props": {
+        "Add into BOM": "yes",
+        "Convert to PCB": "yes",
+        "Designator": "SCREW2",
+        "Device": "7467fa69517175b8",
+        "Footprint": "16cb4fda38fefb81",
+        "PCB Layer": "Default",
+        "Symbol": "0d8e94e080b476a2",
+        "Unique ID": "gge38",
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I24",
+        "Supplier Footprint": "插件",
+        "Description": "",
+        "Name": "",
+        "DeviceName": "M3螺丝",
+        "FootprintName": "M3螺丝"
+      },
+      "altLibs": {
+        "devices": [],
+        "footprints": []
+      },
+      "pinInfoMap": {
+        "1": {
+          "name": "1",
+          "number": "1",
+          "net": "GND",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "1"
+          }
+        }
+      }
+    },
+    "gge37": {
+      "props": {
+        "Add into BOM": "yes",
+        "Convert to PCB": "yes",
+        "Designator": "SCREW1",
+        "Device": "7467fa69517175b8",
+        "Footprint": "16cb4fda38fefb81",
+        "PCB Layer": "Default",
+        "Symbol": "0d8e94e080b476a2",
+        "Unique ID": "gge37",
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I25",
+        "Supplier Footprint": "插件",
+        "Description": "",
+        "Name": "",
+        "DeviceName": "M3螺丝",
+        "FootprintName": "M3螺丝"
+      },
+      "altLibs": {
+        "devices": [],
+        "footprints": []
+      },
+      "pinInfoMap": {
+        "1": {
+          "name": "1",
+          "number": "1",
+          "net": "GND",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "1"
+          }
+        }
+      }
+    },
+    "gge45": {
+      "props": {
+        "Add into BOM": "yes",
+        "Convert to PCB": "yes",
+        "Designator": "U2",
+        "Device": "7308e3ae2d7811bc",
+        "Footprint": "85392c7a701fa335",
+        "PCB Layer": "Default",
+        "Symbol": "237bc945a4d51ff6",
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I26",
+        "Name": "LM2596",
+        "Unique ID": "gge45",
+        "Description": "",
+        "DeviceName": "LM2596",
+        "FootprintName": "LM2596"
+      },
+      "altLibs": {
+        "devices": [],
+        "footprints": []
+      },
+      "pinInfoMap": {
+        "1": {
+          "name": "IN+",
+          "number": "1",
+          "net": "+7.4V",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "1"
+          }
+        },
+        "2": {
+          "name": "IN-",
+          "number": "2",
+          "net": "GND",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "2"
+          }
+        },
+        "3": {
+          "name": "OUT+",
+          "number": "3",
+          "net": "+5V",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "3"
+          }
+        },
+        "4": {
+          "name": "OUT-",
+          "number": "4",
+          "net": "GND",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "4"
+          }
+        }
+      }
+    },
+    "gge44": {
+      "props": {
+        "Add into BOM": "yes",
+        "Convert to PCB": "yes",
+        "Designator": "U3",
+        "Device": "f131e1b0dd080fe6",
+        "Footprint": "8bfb2b8962309985",
+        "PCB Layer": "Default",
+        "Symbol": "1df6ab6d8db5bc8d",
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I27",
+        "Name": "TB6612",
+        "Unique ID": "gge44",
+        "Manufacturer": "",
+        "Manufacturer Part": "",
+        "Supplier Part": "",
+        "Supplier": "",
+        "link": "",
+        "Description": "",
+        "DeviceName": "TB6612",
+        "FootprintName": "TB6612"
+      },
+      "altLibs": {
+        "devices": [],
+        "footprints": []
+      },
+      "pinInfoMap": {
+        "1": {
+          "name": "VM",
+          "number": "1",
+          "net": "+7.4V",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "1"
+          }
+        },
+        "2": {
+          "name": "VCC",
+          "number": "2",
+          "net": "+5V",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "2"
+          }
+        },
+        "3": {
+          "name": "GND",
+          "number": "3",
+          "net": "GND",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "3"
+          }
+        },
+        "4": {
+          "name": "AO1",
+          "number": "4",
+          "net": "MOTA1",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "4"
+          }
+        },
+        "5": {
+          "name": "AO2",
+          "number": "5",
+          "net": "MOTA2",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "5"
+          }
+        },
+        "6": {
+          "name": "BO2",
+          "number": "6",
+          "net": "MOTB2",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "6"
+          }
+        },
+        "7": {
+          "name": "BO1",
+          "number": "7",
+          "net": "MOTB1",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "7"
+          }
+        },
+        "8": {
+          "name": "GND",
+          "number": "8",
+          "net": "GND",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "8"
+          }
+        },
+        "9": {
+          "name": "GND",
+          "number": "9",
+          "net": "GND",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "9"
+          }
+        },
+        "10": {
+          "name": "PWMB",
+          "number": "10",
+          "net": "PA9",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "10"
+          }
+        },
+        "11": {
+          "name": "BIN2",
+          "number": "11",
+          "net": "PB15",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "11"
+          }
+        },
+        "12": {
+          "name": "BIN1",
+          "number": "12",
+          "net": "PB14",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "12"
+          }
+        },
+        "13": {
+          "name": "STBY",
+          "number": "13",
+          "net": "+5V",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "13"
+          }
+        },
+        "14": {
+          "name": "AIN1",
+          "number": "14",
+          "net": "PB12",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "14"
+          }
+        },
+        "15": {
+          "name": "AIN2",
+          "number": "15",
+          "net": "PB13",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "15"
+          }
+        },
+        "16": {
+          "name": "PWMA",
+          "number": "16",
+          "net": "PA8",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "16"
+          }
+        }
+      }
+    },
+    "gge3_1": {
+      "props": {
+        "Add into BOM": "yes",
+        "Convert to PCB": "yes",
+        "Designator": "z1",
+        "Device": "2961e488754e531a",
+        "Footprint": "74be59e0731db355",
+        "PCB Layer": "Default",
+        "Symbol": "922b7df521c0c107",
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I28",
+        "Unique ID": "gge3_1",
+        "Supplier Part": "C50984",
+        "Supplier Footprint": "插件",
+        "3D Model": "db7015f7ad9d48b8a3b1188db02e3429",
+        "3D Model Title": "HDR-F-2.54_1x20",
+        "3D Model Transform": "1999.996,100,0,0,0,0,0,0,-118.11",
+        "JLCPCB Part Class": "扩展库",
+        "Description": "",
+        "Name": "",
+        "DeviceName": "HDR-F_2.54_1x20P",
+        "FootprintName": "HDR-TH_20P-P2.54-V-F"
+      },
+      "altLibs": {
+        "devices": [],
+        "footprints": []
+      },
+      "pinInfoMap": {
+        "1": {
+          "name": "1",
+          "number": "1",
+          "net": "GND",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "1"
+          }
+        },
+        "2": {
+          "name": "2",
+          "number": "2",
+          "net": "GND",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "2"
+          }
+        },
+        "3": {
+          "name": "3",
+          "number": "3",
+          "net": "+3.3V",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "3"
+          }
+        },
+        "4": {
+          "name": "4",
+          "number": "4",
+          "net": "RESET",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "4"
+          }
+        },
+        "5": {
+          "name": "5",
+          "number": "5",
+          "net": "PB11",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "5"
+          }
+        },
+        "6": {
+          "name": "6",
+          "number": "6",
+          "net": "PB10",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "6"
+          }
+        },
+        "7": {
+          "name": "7",
+          "number": "7",
+          "net": "PB1",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "7"
+          }
+        },
+        "8": {
+          "name": "8",
+          "number": "8",
+          "net": "PB0",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "8"
+          }
+        },
+        "9": {
+          "name": "9",
+          "number": "9",
+          "net": "PA7",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "9"
+          }
+        },
+        "10": {
+          "name": "10",
+          "number": "10",
+          "net": "PA6",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "10"
+          }
+        },
+        "11": {
+          "name": "11",
+          "number": "11",
+          "net": "PA5",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "11"
+          }
+        },
+        "12": {
+          "name": "12",
+          "number": "12",
+          "net": "PA4",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "12"
+          }
+        },
+        "13": {
+          "name": "13",
+          "number": "13",
+          "net": "PA3",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "13"
+          }
+        },
+        "14": {
+          "name": "14",
+          "number": "14",
+          "net": "PA2",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "14"
+          }
+        },
+        "15": {
+          "name": "15",
+          "number": "15",
+          "net": "PA1",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "15"
+          }
+        },
+        "16": {
+          "name": "16",
+          "number": "16",
+          "net": "PA0",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "16"
+          }
+        },
+        "17": {
+          "name": "17",
+          "number": "17",
+          "net": "PC15",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "17"
+          }
+        },
+        "18": {
+          "name": "18",
+          "number": "18",
+          "net": "PC14",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "18"
+          }
+        },
+        "19": {
+          "name": "19",
+          "number": "19",
+          "net": "PC13",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "19"
+          }
+        },
+        "20": {
+          "name": "20",
+          "number": "20",
+          "net": "VBAT",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "20"
+          }
+        }
+      }
+    },
+    "gge14": {
+      "props": {
+        "Add into BOM": "yes",
+        "Convert to PCB": "yes",
+        "Device": "ef407ede87cb0ffd",
+        "Footprint": "7ded366ca113110e",
+        "PCB Layer": "Default",
+        "Symbol": "27211ce1e62928d5",
+        "Designator": "SW6",
+        "Name": "={Manufacturer Part}",
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I41",
+        "Unique ID": "gge14",
+        "LCSC Part Name": "柄长5mm 直插双档 滑动开关",
+        "Supplier Part": "C319012",
+        "Manufacturer": "XKB Connectivity(中国星坤)",
+        "Manufacturer Part": "SS-12D10L5",
+        "Supplier Footprint": "插件",
+        "JLCPCB Part Class": "扩展库",
+        "Datasheet": "https://atta.szlcsc.com/upload/public/pdf/source/20211009/D6412F37AABE6F9459A6EE7FA4DAEADB.pdf",
+        "Supplier": "LCSC",
+        "3D Model": "c49f07a32c154ec8ad7cf47670a53981",
+        "3D Model Title": "SW-TH_L13.0-W6.8-H6.4-P4.7",
+        "3D Model Transform": "511.81,267.716,0,0,0,0,0,0,-275.591",
+        "Circuit": "单刀双掷",
+        "Actuator Style": "矩形柱状",
+        "Pin Style": "PC引脚",
+        "Switch Length": "13mm",
+        "Switch Width": "6.8mm",
+        "Switch Height": "6.4mm",
+        "Mounting Style": "直插",
+        "Actuator Color": "黑色",
+        "Current Rating (DC)": "3A",
+        "Voltage Rating (DC)": "125V",
+        "Current Rating (AC)": "3A",
+        "Voltage Rating (AC)": "125V",
+        "Mechanical Life": "1万次",
+        "Operating Temperature": "-40℃~+85℃",
+        "Description": "电路结构:单刀双掷;安装方式:直插;开关颜色:黑色;额定电流(DC):3A;额定电压(DC):125V;额定电流(AC):3A;额定电压(AC):125V;机械寿命:1万次;",
+        "DeviceName": "SS-12D10L5",
+        "FootprintName": "SW-TH_SS-12D10L5"
+      },
+      "altLibs": {
+        "devices": [],
+        "footprints": []
+      },
+      "pinInfoMap": {
+        "1": {
+          "name": "1",
+          "number": "1",
+          "net": "VCC",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "1"
+          }
+        },
+        "2": {
+          "name": "2",
+          "number": "2",
+          "net": "+7.4V",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "2"
+          }
+        },
+        "3": {
+          "name": "3",
+          "number": "3",
+          "net": "",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "3"
+          }
+        }
+      }
+    },
+    "gge46": {
+      "props": {
+        "Add into BOM": "yes",
+        "Convert to PCB": "yes",
+        "Designator": "U4",
+        "Device": "23a1d4de023a496a",
+        "Footprint": "feb0741bf9441a6a",
+        "PCB Layer": "Default",
+        "Symbol": "142c9dce86ab51f8",
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I44",
+        "Unique ID": "gge46",
+        "Name": "",
+        "3D Model": "",
+        "3D Model Title": "",
+        "3D Model Transform": "",
+        "Description": "",
+        "DeviceName": "18650电池盒",
+        "FootprintName": "18650电池盒"
+      },
+      "altLibs": {
+        "devices": [],
+        "footprints": []
+      },
+      "pinInfoMap": {
+        "1": {
+          "name": "1",
+          "number": "1",
+          "net": "VCC",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "1"
+          }
+        },
+        "2": {
+          "name": "2",
+          "number": "2",
+          "net": "GND",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "2"
+          }
+        }
+      }
+    },
+    "gge47": {
+      "props": {
+        "Unique ID": "gge47",
+        "Add into BOM": "yes",
+        "Convert to PCB": "yes",
+        "Device": "01cabaf4795b0d90",
+        "Footprint": "6365b8cc51d6216b",
+        "PCB Layer": "Default",
+        "Symbol": "f7835e643b9f656b",
+        "Designator": "PAD1",
+        "LCSC Part Name": "PAD",
+        "Supplier Part": "C9900017271",
+        "Manufacturer": "",
+        "Manufacturer Part": "PAD",
+        "Supplier Footprint": "PAD",
+        "JLCPCB Part Class": "Extended Part",
+        "Datasheet": "",
+        "Supplier": "LCSC",
+        "3D Model": "529c5bdb1e8c4ce2b406c41e9223ca1a|0819f05c4eef4c71ace90d822a990e87",
+        "3D Model Title": "SMD_BD4.0-L4.0-W4.0-D1.0",
+        "3D Model Transform": "157.48,157.48,0,0,0,0,0,0,-59.055",
+        "Name": "={Manufacturer Part}",
+        "Description": "",
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I82",
+        "DeviceName": "PAD",
+        "FootprintName": "SMD_BD4.0-L4.0-W4.0-D1.0"
+      },
+      "altLibs": {
+        "devices": [],
+        "footprints": []
+      },
+      "pinInfoMap": {
+        "1": {
+          "name": "1",
+          "number": "1",
+          "net": "MOTA1",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "1"
+          }
+        }
+      }
+    },
+    "gge48": {
+      "props": {
+        "Unique ID": "gge48",
+        "Add into BOM": "yes",
+        "Convert to PCB": "yes",
+        "Device": "01cabaf4795b0d90",
+        "Footprint": "6365b8cc51d6216b",
+        "PCB Layer": "Default",
+        "Symbol": "f7835e643b9f656b",
+        "Designator": "PAD2",
+        "LCSC Part Name": "PAD",
+        "Supplier Part": "C9900017271",
+        "Manufacturer": "",
+        "Manufacturer Part": "PAD",
+        "Supplier Footprint": "PAD",
+        "JLCPCB Part Class": "Extended Part",
+        "Datasheet": "",
+        "Supplier": "LCSC",
+        "3D Model": "529c5bdb1e8c4ce2b406c41e9223ca1a|0819f05c4eef4c71ace90d822a990e87",
+        "3D Model Title": "SMD_BD4.0-L4.0-W4.0-D1.0",
+        "3D Model Transform": "157.48,157.48,0,0,0,0,0,0,-59.055",
+        "Name": "={Manufacturer Part}",
+        "Description": "",
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I83",
+        "DeviceName": "PAD",
+        "FootprintName": "SMD_BD4.0-L4.0-W4.0-D1.0"
+      },
+      "altLibs": {
+        "devices": [],
+        "footprints": []
+      },
+      "pinInfoMap": {
+        "1": {
+          "name": "1",
+          "number": "1",
+          "net": "MOTA2",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "1"
+          }
+        }
+      }
+    },
+    "gge49": {
+      "props": {
+        "Unique ID": "gge49",
+        "Add into BOM": "yes",
+        "Convert to PCB": "yes",
+        "Device": "01cabaf4795b0d90",
+        "Footprint": "6365b8cc51d6216b",
+        "PCB Layer": "Default",
+        "Symbol": "f7835e643b9f656b",
+        "Designator": "PAD3",
+        "LCSC Part Name": "PAD",
+        "Supplier Part": "C9900017271",
+        "Manufacturer": "",
+        "Manufacturer Part": "PAD",
+        "Supplier Footprint": "PAD",
+        "JLCPCB Part Class": "Extended Part",
+        "Datasheet": "",
+        "Supplier": "LCSC",
+        "3D Model": "529c5bdb1e8c4ce2b406c41e9223ca1a|0819f05c4eef4c71ace90d822a990e87",
+        "3D Model Title": "SMD_BD4.0-L4.0-W4.0-D1.0",
+        "3D Model Transform": "157.48,157.48,0,0,0,0,0,0,-59.055",
+        "Name": "={Manufacturer Part}",
+        "Description": "",
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I84",
+        "DeviceName": "PAD",
+        "FootprintName": "SMD_BD4.0-L4.0-W4.0-D1.0"
+      },
+      "altLibs": {
+        "devices": [],
+        "footprints": []
+      },
+      "pinInfoMap": {
+        "1": {
+          "name": "1",
+          "number": "1",
+          "net": "MOTB1",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "1"
+          }
+        }
+      }
+    },
+    "gge50": {
+      "props": {
+        "Unique ID": "gge50",
+        "Add into BOM": "yes",
+        "Convert to PCB": "yes",
+        "Device": "01cabaf4795b0d90",
+        "Footprint": "6365b8cc51d6216b",
+        "PCB Layer": "Default",
+        "Symbol": "f7835e643b9f656b",
+        "Designator": "PAD4",
+        "LCSC Part Name": "PAD",
+        "Supplier Part": "C9900017271",
+        "Manufacturer": "",
+        "Manufacturer Part": "PAD",
+        "Supplier Footprint": "PAD",
+        "JLCPCB Part Class": "Extended Part",
+        "Datasheet": "",
+        "Supplier": "LCSC",
+        "3D Model": "529c5bdb1e8c4ce2b406c41e9223ca1a|0819f05c4eef4c71ace90d822a990e87",
+        "3D Model Title": "SMD_BD4.0-L4.0-W4.0-D1.0",
+        "3D Model Transform": "157.48,157.48,0,0,0,0,0,0,-59.055",
+        "Name": "={Manufacturer Part}",
+        "Description": "",
+        "Reuse Block": "",
+        "Group ID": "",
+        "Channel ID": "$1I85",
+        "DeviceName": "PAD",
+        "FootprintName": "SMD_BD4.0-L4.0-W4.0-D1.0"
+      },
+      "altLibs": {
+        "devices": [],
+        "footprints": []
+      },
+      "pinInfoMap": {
+        "1": {
+          "name": "1",
+          "number": "1",
+          "net": "MOTB2",
+          "pinClass": "",
+          "pinDifferentialPairClass": "",
+          "props": {
+            "Pin Number": "1"
+          }
+        }
+      }
+    }
+  },
+  "designRule": {
+    "trackPhysics": {
+      "copperThickness1oz": {
+        "name": "copperThickness1oz",
+        "isDefault": true,
+        "unit": "mm",
+        "strokeValue": {
+          "common": {
+            "min": 0.127,
+            "max": 2.54,
+            "default": 0.254
+          }
+        }
+      },
+      "copperThickness2oz": {
+        "name": "copperThickness2oz",
+        "isDefault": false,
+        "unit": "mm",
+        "strokeValue": {
+          "common": {
+            "min": 0.203,
+            "max": 2.54,
+            "default": 0.254
+          }
+        }
+      }
+    },
+    "netRule": {
+      "+5V": {
+        "net": "+5V",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "GND": {
+        "net": "GND",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "PB12": {
+        "net": "PB12",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "PB13": {
+        "net": "PB13",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "PB14": {
+        "net": "PB14",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "PA9": {
+        "net": "PA9",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "PA8": {
+        "net": "PA8",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "PB15": {
+        "net": "PB15",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "PA12": {
+        "net": "PA12",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "PA11": {
+        "net": "PA11",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "PA10": {
+        "net": "PA10",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "PB4": {
+        "net": "PB4",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "PB3": {
+        "net": "PB3",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "PA15": {
+        "net": "PA15",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "PB7": {
+        "net": "PB7",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "PB6": {
+        "net": "PB6",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "PB5": {
+        "net": "PB5",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "PB9": {
+        "net": "PB9",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "PB8": {
+        "net": "PB8",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "+3.3V": {
+        "net": "+3.3V",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "PB10": {
+        "net": "PB10",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "PB11": {
+        "net": "PB11",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "RESET": {
+        "net": "RESET",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "PA7": {
+        "net": "PA7",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "PB0": {
+        "net": "PB0",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "PB1": {
+        "net": "PB1",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "PA4": {
+        "net": "PA4",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "PA5": {
+        "net": "PA5",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "PA6": {
+        "net": "PA6",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "PA1": {
+        "net": "PA1",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "PA2": {
+        "net": "PA2",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "PA3": {
+        "net": "PA3",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "PC14": {
+        "net": "PC14",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "PC15": {
+        "net": "PC15",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "PA0": {
+        "net": "PA0",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "VBAT": {
+        "net": "VBAT",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "PC13": {
+        "net": "PC13",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "+7.4V": {
+        "net": "+7.4V",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "VCC": {
+        "net": "VCC",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "MOTA1": {
+        "net": "MOTA1",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "MOTA2": {
+        "net": "MOTA2",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "MOTB2": {
+        "net": "MOTB2",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      },
+      "MOTB1": {
+        "net": "MOTB1",
+        "ruleMap": {
+          "TrackPhysics": ""
+        }
+      }
+    }
+  },
+  "differentialPair": {},
+  "netClass": {},
+  "equalLengthNetGroup": {},
+  "differentialPairGroups": {}
+}

@@ -1,0 +1,96 @@
+{
+  "name": "水下课设",
+  "owner_uuid": "0a9b473babfb47b7b58ad8f59537486a",
+  "creator_uuid": "0a9b473babfb47b7b58ad8f59537486a",
+  "created_at": "2026-10-31 23:24:11",
+  "updated_at": "2026-10-31 23:24:11",
+  "modifier_uuid": "0a9b473babfb47b7b58ad8f59537486a",
+  "content": "",
+  "archive": false,
+  "cbb_project": 0,
+  "thumb": "",
+  "ticket": 1,
+  "g_ticket": 1,
+  "boards": [],
+  "block_symbol_attrs_groups": {},
+  "default_sheet": "defee4065900bf0e",
+  "branch_uuid": "",
+  "pcb_count": 0,
+  "format": "folder",
+  "config": {
+    "defaultSheet": "defee4065900bf0e",
+    "settings": {
+      "UNIVERSAL": {
+        "dataType": "UNIVERSAL",
+        "data": {
+          "allowLibRename": true,
+          "defaultNetName": true,
+          "wireMultipleNet": true,
+          "netFlagCrossLayerConnection": true,
+          "netLabelCrossPageConnection": true,
+          "busGenerateNetClass": true,
+          "relevanceDisplayRow": "SINGLE",
+          "relevanceBelongSchPage": "NAME",
+          "relevanceLocation": "ZONE",
+          "multipartCrossLayer": true,
+          "nonElectronicAddIntoBom": false,
+          "nonElectronicUpdatePcb": false
+        }
+      }
+    }
+  },
+  "profile": {
+    "boards": {
+      "719ff41fdc4eee91": {
+        "uuid": "719ff41fdc4eee91",
+        "title": "Board1",
+        "zIndex": 1
+      }
+    },
+    "schematics": {
+      "14f84a53554c28b6": {
+        "uuid": "14f84a53554c28b6",
+        "name": "Schematic1",
+        "board": "719ff41fdc4eee91",
+        "source": "",
+        "version": "1793546525133",
+        "updateTime": 1793546525133
+      }
+    },
+    "sheets": {
+      "5f576dec60733a86": {
+        "uuid": "5f576dec60733a86",
+        "title": "P1",
+        "schematic_uuid": "14f84a53554c28b6",
+        "zIndex": 1,
+        "source": "",
+        "version": "1793546525133",
+        "updateTime": 1793546525133
+      }
+    },
+    "pcbs": {
+      "4ad649d5d85da8f9": {
+        "uuid": "4ad649d5d85da8f9",
+        "title": "PCB1",
+        "board": "719ff41fdc4eee91",
+        "parent_uuid": "",
+        "source": "",
+        "version": "1793541062946",
+        "updateTime": 1793541062946
+      }
+    },
+    "panels": {
+      "9ded9eea8a5aeb64": {
+        "uuid": "9ded9eea8a5aeb64",
+        "title": "Panel1",
+        "zIndex": null
+      }
+    },
+    "blockSymbols": {},
+    "owner": {
+      "uuid": "0a9b473babfb47b7b58ad8f59537486a"
+    },
+    "simSchematics": {},
+    "simulations": {}
+  }
+}
