@@ -1,14 +1,13 @@
 """
-水下机器人 - LoRa无线遥控上位机软件
-Underwater Robot - LoRa Remote Controller
+水下机器人 - LoRa无线遥控上位机软件 (增强版)
+Underwater Robot - LoRa Remote Controller (Enhanced Focus & Input)
 --------------------------------------------------
-特点:
-1. 支持串口自动扫描、波特率选择、连接状态监控
-2. 键盘 WSAD 实时控制 (W-前进, S-后退, A-左转, D-右转)
-3. 严格实现 "只有按键按下才发送信息，stm端才产生pwm驱动电机；按键松开立即停止"
-4. 支持按键加速/减速 (Q/E键、↑/↓键、+/-键 及 界面滑块调速)
-5. 实时显示当前速度数值、百分比及当前动作状态
-6. 界面虚拟按键高亮联动反馈与实时通信日志显示
+改进特性:
+1. 全局事件过滤器 (Global EventFilter): 彻底解决因焦点在输入框/滑块/按钮上导致的按键失灵问题
+2. 支持键盘大小写及输入法文本双重匹配
+3. 支持鼠标在虚拟按键上【按住启动/松开停止】
+4. 串口未连接时友好提示，消除"按键无反馈"困惑
+5. 实时按键高亮动效与水下状态监视
 --------------------------------------------------
 """
 
@@ -16,11 +15,11 @@ import sys
 import time
 import serial
 import serial.tools.list_ports
-from PyQt5.QtCore import Qt, QTimer, pyqtSignal, QObject
-from PyQt5.QtGui import QFont, QColor, QPalette, QIcon
+from PyQt5.QtCore import Qt, QTimer, QEvent
+from PyQt5.QtGui import QFont
 from PyQt5.QtWidgets import (
     QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
-    QLabel, QPushButton, QComboBox, QSlider, QSpinBox, QTextEdit,
+    QLabel, QPushButton, QComboBox, QSlider, QTextEdit,
     QGroupBox, QGridLayout, QFrame, QMessageBox, QProgressBar
 )
 
@@ -60,9 +59,9 @@ def build_lora_packet(cmd: int, left_speed: int, right_speed: int) -> bytes:
 class LoRaControllerWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("水下机器人 LoRa 遥控上位机 v1.0")
-        self.resize(880, 720)
-        self.setMinimumSize(800, 650)
+        self.setWindowTitle("水下机器人 LoRa 遥控上位机 v1.1")
+        self.resize(900, 750)
+        self.setMinimumSize(820, 680)
 
         # 核心通信与控制参数
         self.serial_port = None
@@ -71,6 +70,7 @@ class LoRaControllerWindow(QMainWindow):
         self.active_keys = set()      # 当前正被按下的有效移动键
         self.current_motion = "STOP"  # 当前运动状态
         self.was_moving = False
+        self.last_warn_time = 0
 
         # 发送循环定时器 (按键按下期间以 50ms 周期持续发送心跳帧, 保证下位机平稳输出 PWM)
         self.send_timer = QTimer(self)
@@ -82,10 +82,13 @@ class LoRaControllerWindow(QMainWindow):
         self.recv_timer.setInterval(30)
         self.recv_timer.timeout.connect(self.read_serial_data)
 
-        # 初始化现代化深海科技风 UI
+        # 初始化 UI
         self.init_ui()
         self.apply_dark_theme()
         self.refresh_ports()
+
+        # 安装全局事件过滤器，杜绝因焦点问题导致的按键无法响应！
+        QApplication.instance().installEventFilter(self)
 
     def init_ui(self):
         main_widget = QWidget(self)
@@ -94,11 +97,19 @@ class LoRaControllerWindow(QMainWindow):
         main_layout.setSpacing(12)
         main_layout.setContentsMargins(16, 16, 16, 16)
 
-        # 1. 顶部标题栏
+        # 1. 顶部标题栏与输入法提示
+        title_box = QVBoxLayout()
         title_label = QLabel("🌊 水下微型机器人 (ROV) - LoRa 无线遥控驾驶台")
         title_label.setFont(QFont("Microsoft YaHei", 16, QFont.Bold))
         title_label.setAlignment(Qt.AlignCenter)
-        main_layout.addWidget(title_label)
+        title_box.addWidget(title_label)
+
+        sub_label = QLabel("💡 提示：使用键盘 WSAD 航行时，请将输入法切换为【英文】模式（按键盘 Shift 键切换）")
+        sub_label.setFont(QFont("Microsoft YaHei", 9))
+        sub_label.setStyleSheet("color: #FFD54F;")
+        sub_label.setAlignment(Qt.AlignCenter)
+        title_box.addWidget(sub_label)
+        main_layout.addLayout(title_box)
 
         # 2. 串口配置栏
         port_group = QGroupBox("串口通信连接")
@@ -107,9 +118,11 @@ class LoRaControllerWindow(QMainWindow):
         port_layout.addWidget(QLabel("串口号:"))
         self.combo_ports = QComboBox()
         self.combo_ports.setMinimumWidth(180)
+        self.combo_ports.setFocusPolicy(Qt.NoFocus)  # 防止抢占按键焦点
         port_layout.addWidget(self.combo_ports)
 
         btn_refresh = QPushButton("🔄 刷新串口")
+        btn_refresh.setFocusPolicy(Qt.NoFocus)
         btn_refresh.clicked.connect(self.refresh_ports)
         port_layout.addWidget(btn_refresh)
 
@@ -117,10 +130,12 @@ class LoRaControllerWindow(QMainWindow):
         self.combo_baud = QComboBox()
         self.combo_baud.addItems(["9600", "115200", "19200", "38400", "57600"])
         self.combo_baud.setCurrentText("9600")
+        self.combo_baud.setFocusPolicy(Qt.NoFocus)
         port_layout.addWidget(self.combo_baud)
 
         self.btn_connect = QPushButton("🔌 打开串口")
         self.btn_connect.setFont(QFont("Microsoft YaHei", 10, QFont.Bold))
+        self.btn_connect.setFocusPolicy(Qt.NoFocus)
         self.btn_connect.clicked.connect(self.toggle_serial_connection)
         port_layout.addWidget(self.btn_connect)
 
@@ -169,16 +184,19 @@ class LoRaControllerWindow(QMainWindow):
         self.slider_speed.setRange(100, 1000)
         self.slider_speed.setSingleStep(50)
         self.slider_speed.setValue(self.current_speed)
+        self.slider_speed.setFocusPolicy(Qt.NoFocus)  # 避免滑块劫持方向键
         self.slider_speed.valueChanged.connect(self.on_slider_speed_changed)
         speed_layout.addWidget(self.slider_speed)
 
         # 调速按钮与微调
         speed_btn_layout = QHBoxLayout()
         self.btn_dec_speed = QPushButton("➖ 减速 [Q / ↓]")
+        self.btn_dec_speed.setFocusPolicy(Qt.NoFocus)
         self.btn_dec_speed.clicked.connect(self.decrease_speed)
         speed_btn_layout.addWidget(self.btn_dec_speed)
 
         self.btn_inc_speed = QPushButton("➕ 加速 [E / ↑]")
+        self.btn_inc_speed.setFocusPolicy(Qt.NoFocus)
         self.btn_inc_speed.clicked.connect(self.increase_speed)
         speed_btn_layout.addWidget(self.btn_inc_speed)
 
@@ -198,10 +216,10 @@ class LoRaControllerWindow(QMainWindow):
         middle_layout.addWidget(speed_group, stretch=5)
 
         # 3.2 右侧: 虚拟键盘与操作指南
-        nav_group = QGroupBox("按键操作指南与实时按压状态")
+        nav_group = QGroupBox("按键操控面板 (支持键盘按压与鼠标按住)")
         nav_layout = QVBoxLayout(nav_group)
 
-        # 虚拟 WASD 面板
+        # 虚拟 WASD 面板 (既支持键盘按下发光，也支持鼠标按住操纵)
         grid = QGridLayout()
         grid.setSpacing(10)
 
@@ -213,12 +231,23 @@ class LoRaControllerWindow(QMainWindow):
 
         for btn in [self.btn_w, self.btn_a, self.btn_s, self.btn_d]:
             btn.setFont(QFont("Microsoft YaHei", 11, QFont.Bold))
-            btn.setFixedSize(90, 60)
+            btn.setFixedSize(95, 60)
             btn.setFocusPolicy(Qt.NoFocus)
 
         self.btn_space.setFont(QFont("Microsoft YaHei", 10, QFont.Bold))
         self.btn_space.setFixedHeight(45)
         self.btn_space.setFocusPolicy(Qt.NoFocus)
+
+        # 绑定鼠标按下/松开事件，支持用鼠标直接按住操纵！
+        self.btn_w.pressed.connect(lambda: self.on_virtual_key_press('W'))
+        self.btn_w.released.connect(lambda: self.on_virtual_key_release('W'))
+        self.btn_s.pressed.connect(lambda: self.on_virtual_key_press('S'))
+        self.btn_s.released.connect(lambda: self.on_virtual_key_release('S'))
+        self.btn_a.pressed.connect(lambda: self.on_virtual_key_press('A'))
+        self.btn_a.released.connect(lambda: self.on_virtual_key_release('A'))
+        self.btn_d.pressed.connect(lambda: self.on_virtual_key_press('D'))
+        self.btn_d.released.connect(lambda: self.on_virtual_key_release('D'))
+        self.btn_space.clicked.connect(self.on_virtual_brake)
 
         grid.addWidget(self.btn_w, 0, 1)
         grid.addWidget(self.btn_a, 1, 0)
@@ -233,11 +262,11 @@ class LoRaControllerWindow(QMainWindow):
         tip_frame.setFrameShape(QFrame.StyledPanel)
         tip_layout = QVBoxLayout(tip_frame)
         tip_layout.setContentsMargins(8, 8, 8, 8)
-        tip_layout.addWidget(QLabel("📌 <b>操作规则提示:</b>"))
-        tip_layout.addWidget(QLabel("• <b>按下按键</b>：实时发送运动指令，驱动水下推进器产生 PWM"))
-        tip_layout.addWidget(QLabel("• <b>松开按键</b>：立即发送停止信号，推进器自动停转"))
-        tip_layout.addWidget(QLabel("• <b>[Q] / [E]</b>：快速减速 / 加速 (以 50 为步长调节)"))
-        tip_layout.addWidget(QLabel("• <b>下位机安全看门狗</b>：信号丢失超 350ms 自动紧急制动"))
+        tip_layout.addWidget(QLabel("📌 <b>核心操纵规则:</b>"))
+        tip_layout.addWidget(QLabel("• <b>按住按键</b>：持续发送航行指令，水下推进器输出 PWM 运转"))
+        tip_layout.addWidget(QLabel("• <b>松开按键</b>：立即发送 STOP 停机指令，推进器立刻停转"))
+        tip_layout.addWidget(QLabel("• <b>[Q] / [E]</b>：实时降低 / 增加航行功率（步长 50）"))
+        tip_layout.addWidget(QLabel("• <b>[空格]</b>：触发紧急制动"))
         nav_layout.addWidget(tip_frame)
 
         middle_layout.addWidget(nav_group, stretch=6)
@@ -252,6 +281,7 @@ class LoRaControllerWindow(QMainWindow):
         log_ctrl_layout.addStretch()
 
         btn_clear_log = QPushButton("清空日志")
+        btn_clear_log.setFocusPolicy(Qt.NoFocus)
         btn_clear_log.clicked.connect(self.clear_log)
         log_ctrl_layout.addWidget(btn_clear_log)
         log_layout.addLayout(log_ctrl_layout)
@@ -259,7 +289,8 @@ class LoRaControllerWindow(QMainWindow):
         self.log_text = QTextEdit()
         self.log_text.setFont(QFont("Consolas", 9))
         self.log_text.setReadOnly(True)
-        self.log_text.setFixedHeight(130)
+        self.log_text.setFixedHeight(120)
+        self.log_text.setFocusPolicy(Qt.NoFocus)
         log_layout.addWidget(self.log_text)
 
         main_layout.addWidget(log_group)
@@ -343,6 +374,111 @@ class LoRaControllerWindow(QMainWindow):
         self.setStyleSheet(dark_style)
 
     # -------------------------------------------------------------
+    # 全局事件过滤器 (彻底解决由于子控件焦点导致按键丢失的现象)
+    # -------------------------------------------------------------
+    def eventFilter(self, obj, event):
+        if event.type() == QEvent.KeyPress:
+            if not event.isAutoRepeat():
+                if self.handle_key_down(event):
+                    return True
+        elif event.type() == QEvent.KeyRelease:
+            if not event.isAutoRepeat():
+                if self.handle_key_up(event):
+                    return True
+        return super().eventFilter(obj, event)
+
+    def handle_key_down(self, event):
+        """统一按键按下处理"""
+        key = event.key()
+        text = event.text().upper()
+
+        # 调速键
+        if key in (Qt.Key_Q, Qt.Key_Down, Qt.Key_Minus) or text == 'Q':
+            self.decrease_speed()
+            return True
+        elif key in (Qt.Key_E, Qt.Key_Up, Qt.Key_Plus, Qt.Key_Equal) or text == 'E':
+            self.increase_speed()
+            return True
+
+        # 运动控制键
+        if key == Qt.Key_W or text == 'W':
+            self.on_virtual_key_press('W')
+            return True
+        elif key == Qt.Key_S or text == 'S':
+            self.on_virtual_key_press('S')
+            return True
+        elif key == Qt.Key_A or text == 'A':
+            self.on_virtual_key_press('A')
+            return True
+        elif key == Qt.Key_D or text == 'D':
+            self.on_virtual_key_press('D')
+            return True
+        elif key == Qt.Key_Space:
+            self.on_virtual_brake()
+            return True
+
+        return False
+
+    def handle_key_up(self, event):
+        """统一按键释放处理"""
+        key = event.key()
+        text = event.text().upper()
+
+        if key == Qt.Key_W or text == 'W':
+            self.on_virtual_key_release('W')
+            return True
+        elif key == Qt.Key_S or text == 'S':
+            self.on_virtual_key_release('S')
+            return True
+        elif key == Qt.Key_A or text == 'A':
+            self.on_virtual_key_release('A')
+            return True
+        elif key == Qt.Key_D or text == 'D':
+            self.on_virtual_key_release('D')
+            return True
+        elif key == Qt.Key_Space:
+            self.highlight_button(self.btn_space, False)
+            return True
+
+        return False
+
+    def on_virtual_key_press(self, key_char: str):
+        """虚拟按键/键盘通用的按下动作"""
+        self.active_keys.add(key_char)
+        if key_char == 'W':
+            self.highlight_button(self.btn_w, True)
+        elif key_char == 'S':
+            self.highlight_button(self.btn_s, True)
+        elif key_char == 'A':
+            self.highlight_button(self.btn_a, True)
+        elif key_char == 'D':
+            self.highlight_button(self.btn_d, True)
+
+        self.update_motion_state()
+
+    def on_virtual_key_release(self, key_char: str):
+        """虚拟按键/键盘通用的松开动作"""
+        self.active_keys.discard(key_char)
+        if key_char == 'W':
+            self.highlight_button(self.btn_w, False)
+        elif key_char == 'S':
+            self.highlight_button(self.btn_s, False)
+        elif key_char == 'A':
+            self.highlight_button(self.btn_a, False)
+        elif key_char == 'D':
+            self.highlight_button(self.btn_d, False)
+
+        self.update_motion_state()
+
+    def on_virtual_brake(self):
+        """触发刹车"""
+        self.active_keys.clear()
+        self.highlight_button(self.btn_space, True)
+        self.send_packet(CMD_BRAKE, 0, 0)
+        self.update_motion_label("BRAKE")
+        QTimer.singleShot(400, lambda: self.highlight_button(self.btn_space, False))
+
+    # -------------------------------------------------------------
     # 串口连接与通信逻辑
     # -------------------------------------------------------------
     def refresh_ports(self):
@@ -387,14 +523,21 @@ class LoRaControllerWindow(QMainWindow):
 
     def send_packet(self, cmd: int, left_speed: int, right_speed: int):
         """通过串口发送 10 字节协议包"""
+        pkt = build_lora_packet(cmd, left_speed, right_speed)
+        hex_str = " ".join([f"{b:02X}" for b in pkt])
+
         if self.serial_port and self.serial_port.is_open:
-            pkt = build_lora_packet(cmd, left_speed, right_speed)
             try:
                 self.serial_port.write(pkt)
-                hex_str = " ".join([f"{b:02X}" for b in pkt])
-                self.append_log(f"[TX] {hex_str} (CMD: {cmd}, L: {left_speed}, R: {right_speed})")
+                self.append_log(f"[TX] {hex_str} (CMD:{cmd}, L:{left_speed}, R:{right_speed})")
             except Exception as e:
                 self.append_log(f"[错误] 发送失败: {e}")
+        else:
+            # 串口未连接时在日志区给予定期提示，避免用户误以为按键无响应
+            now = time.time()
+            if now - self.last_warn_time > 1.5:
+                self.append_log(f"[模拟控制] {hex_str} (提示: 串口未连接, 请先点击'打开串口')")
+                self.last_warn_time = now
 
     def send_stop_packet(self):
         """发送停止包 (连续发送3次增强抗干扰丢包)"""
@@ -448,77 +591,8 @@ class LoRaControllerWindow(QMainWindow):
         self.set_speed(val)
 
     # -------------------------------------------------------------
-    # 键盘按压核心响应 (处理 Auto-Repeat, 确保只有按下才发, 松开立即停)
+    # 航行状态计算与周期发送循环
     # -------------------------------------------------------------
-    def keyPressEvent(self, event):
-        # 必须过滤操作系统的自动重复按键 (按住键时 OS 会连续伪触发)
-        if event.isAutoRepeat():
-            return
-
-        key = event.key()
-
-        # 调速快捷键
-        if key in (Qt.Key_Q, Qt.Key_Down, Qt.Key_Minus):
-            self.decrease_speed()
-            return
-        elif key in (Qt.Key_E, Qt.Key_Up, Qt.Key_Plus, Qt.Key_Equal):
-            self.increase_speed()
-            return
-
-        # 运动控制键: W, S, A, D
-        if key == Qt.Key_W:
-            self.active_keys.add('W')
-            self.highlight_button(self.btn_w, True)
-        elif key == Qt.Key_S:
-            self.active_keys.add('S')
-            self.highlight_button(self.btn_s, True)
-        elif key == Qt.Key_A:
-            self.active_keys.add('A')
-            self.highlight_button(self.btn_a, True)
-        elif key == Qt.Key_D:
-            self.active_keys.add('D')
-            self.highlight_button(self.btn_d, True)
-        elif key == Qt.Key_Space:
-            # 紧急制动
-            self.active_keys.clear()
-            self.highlight_button(self.btn_space, True)
-            self.send_packet(CMD_BRAKE, 0, 0)
-            self.update_motion_label("BRAKE")
-            return
-        else:
-            super().keyPressEvent(event)
-            return
-
-        # 启动按压周期发送循环
-        self.update_motion_state()
-
-    def keyReleaseEvent(self, event):
-        # 必须过滤自动重复释放事件！只有用户真实松开手才处理
-        if event.isAutoRepeat():
-            return
-
-        key = event.key()
-        if key == Qt.Key_W:
-            self.active_keys.discard('W')
-            self.highlight_button(self.btn_w, False)
-        elif key == Qt.Key_S:
-            self.active_keys.discard('S')
-            self.highlight_button(self.btn_s, False)
-        elif key == Qt.Key_A:
-            self.active_keys.discard('A')
-            self.highlight_button(self.btn_a, False)
-        elif key == Qt.Key_D:
-            self.active_keys.discard('D')
-            self.highlight_button(self.btn_d, False)
-        elif key == Qt.Key_Space:
-            self.highlight_button(self.btn_space, False)
-        else:
-            super().keyReleaseEvent(event)
-            return
-
-        # 更新运动状态 (若全部按键松开，则触发停止)
-        self.update_motion_state()
-
     def update_motion_state(self):
         """根据当前 active_keys 集合计算当前航行动作"""
         if not self.active_keys:
