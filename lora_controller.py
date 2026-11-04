@@ -519,7 +519,13 @@ class LoRaControllerWindow(QMainWindow):
                 self.append_log(f"[系统] 成功打开串口 {port}, 波特率 {baud}")
                 self.recv_timer.start()
             except Exception as e:
-                QMessageBox.critical(self, "错误", f"无法打开串口 {port}:\n{str(e)}")
+                err_msg = str(e)
+                if "拒绝访问" in err_msg or "PermissionError" in err_msg or "Access is denied" in err_msg:
+                    tip = f"无法打开串口 {port}：访问被拒绝！\n\n【原因】：当前端口正被其他软件（如 XCOM、SSCOM 串口调试助手）独占使用。\n【解决办法】：请在其他串口软件中点击“关闭串口”或退出该软件，然后再试。"
+                else:
+                    tip = f"无法打开串口 {port}：\n{err_msg}"
+                QMessageBox.critical(self, "串口打开失败", tip)
+                self.append_log(f"[错误] 打开串口失败: {err_msg}")
 
     def send_packet(self, cmd: int, left_speed: int, right_speed: int):
         """通过串口发送 10 字节协议包"""
@@ -531,13 +537,42 @@ class LoRaControllerWindow(QMainWindow):
                 self.serial_port.write(pkt)
                 self.append_log(f"[TX] {hex_str} (CMD:{cmd}, L:{left_speed}, R:{right_speed})")
             except Exception as e:
-                self.append_log(f"[错误] 发送失败: {e}")
+                self.handle_serial_error(e)
         else:
             # 串口未连接时在日志区给予定期提示，避免用户误以为按键无响应
             now = time.time()
             if now - self.last_warn_time > 1.5:
                 self.append_log(f"[模拟控制] {hex_str} (提示: 串口未连接, 请先点击'打开串口')")
                 self.last_warn_time = now
+
+    def handle_serial_error(self, err: Exception):
+        """串口出现严重异常（如被抢占、拔出、拒绝访问）时的自动保护处理"""
+        err_str = str(err)
+        # 立即停止周期发送，避免疯狂刷屏
+        self.send_timer.stop()
+        self.recv_timer.stop()
+        self.active_keys.clear()
+        self.update_motion_label("STOP")
+
+        if "拒绝访问" in err_str or "PermissionError" in err_str or "Access is denied" in err_str:
+            diag_msg = "【串口被占用】Windows拒绝访问该COM口！通常是因为其他软件（如 XCOM、SSCOM、VOFA+ 等串口助手）正打开着该端口。请关闭其他串口软件后重试！"
+        else:
+            diag_msg = f"【串口通信中断】{err_str}"
+
+        self.append_log(f"[错误] {diag_msg}")
+
+        # 尝试关闭损坏的串口
+        try:
+            if self.serial_port:
+                self.serial_port.close()
+        except Exception:
+            pass
+        self.serial_port = None
+
+        self.btn_connect.setText("🔌 打开串口")
+        self.lbl_status.setText("● 端口异常断开")
+        self.lbl_status.setStyleSheet("color: #FF5252;")
+        QMessageBox.warning(self, "串口连接异常", f"{diag_msg}\n\n已自动断开连接，请排查后重新打开串口。")
 
     def send_stop_packet(self):
         """发送停止包 (连续发送3次增强抗干扰丢包)"""
