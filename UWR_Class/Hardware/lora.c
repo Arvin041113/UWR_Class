@@ -239,3 +239,84 @@ uint8_t LoRa_GetPacket(LoRa_Packet_t *packet)
     }
     return 0;
 }
+
+/**
+ * @brief 综合命令获取接口 (彻底解决数据包与字符冲突问题)
+ * 优先解析10字节结构化数据包；若不足10字节且队首为0x55，安全保留等待；
+ * 仅当队首不是0x55且匹配字符命令时，才作为字符解析，未知字符直接丢弃绝不关停电机！
+ * @param packet 输出的控制包结构体指针
+ * @return 1: 成功获取到一条控制指令; 0: 暂无新指令
+ */
+uint8_t LoRa_GetCommand(LoRa_Packet_t *packet)
+{
+    /* 1. 首先尝试解析 10 字节数据包 */
+    if (LoRa_GetPacket(packet))
+    {
+        return 1;
+    }
+
+    /* 2. 检查是否有单字符控制指令 */
+    if (LoRa_Available() > 0)
+    {
+        uint8_t head_byte = LoRa_Peek(0);
+
+        /* 关键保护: 如果队首是 0x55，说明正在接收数据包的前半部分，绝对不能读走！ */
+        if (head_byte == LORA_FRAME_HEAD1)
+        {
+            return 0;
+        }
+
+        /* 队首不是 0x55，安全出队 1 个字节 */
+        char ch = (char)LoRa_Read();
+        switch (ch)
+        {
+            case 'F':
+            case 'f':
+                packet->cmd = LORA_CMD_FORWARD;
+                packet->left_speed = 600;
+                packet->right_speed = 600;
+                return 1;
+
+            case 'B':
+            case 'b':
+                packet->cmd = LORA_CMD_BACKWARD;
+                packet->left_speed = 600;
+                packet->right_speed = 600;
+                return 1;
+
+            case 'L':
+            case 'l':
+                packet->cmd = LORA_CMD_TURN_LEFT;
+                packet->left_speed = 600;
+                packet->right_speed = 600;
+                return 1;
+
+            case 'R':
+            case 'r':
+                packet->cmd = LORA_CMD_TURN_RIGHT;
+                packet->left_speed = 600;
+                packet->right_speed = 600;
+                return 1;
+
+            case 'P':
+            case 'p':
+                packet->cmd = LORA_CMD_BRAKE;
+                packet->left_speed = 0;
+                packet->right_speed = 0;
+                return 1;
+
+            case 'S':
+            case 's':
+                packet->cmd = LORA_CMD_STOP;
+                packet->left_speed = 0;
+                packet->right_speed = 0;
+                return 1;
+
+            default:
+                /* 收到换行、空格等杂波，直接忽略丢弃，绝不能关闭电机！ */
+                return 0;
+        }
+    }
+
+    return 0;
+}

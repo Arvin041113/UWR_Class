@@ -73,5 +73,6 @@ void LoRa_ClearRxBuffer(void);
 /* 指令级解析接口 (适合字符控制与协议包控制) */
 uint8_t LoRa_GetChar(char *ch);
 uint8_t LoRa_GetPacket(LoRa_Packet_t *packet);
+uint8_t LoRa_GetCommand(LoRa_Packet_t *packet);
 
 #endif /* __LORA_H */

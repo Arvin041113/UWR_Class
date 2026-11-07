@@ -72,9 +72,9 @@ class LoRaControllerWindow(QMainWindow):
         self.was_moving = False
         self.last_warn_time = 0
 
-        # 发送循环定时器 (按键按下期间以 50ms 周期持续发送心跳帧, 保证下位机平稳输出 PWM)
+        # 发送循环定时器 (按键按下期间以 80ms 周期持续发送心跳帧, 保证下位机平稳输出 PWM 且空口不堵塞)
         self.send_timer = QTimer(self)
-        self.send_timer.setInterval(50)  # 20 Hz
+        self.send_timer.setInterval(80)  # 12.5 Hz (适应 LoRa 模块空中无线传输时长)
         self.send_timer.timeout.connect(self.on_send_timer_tick)
 
         # 串口接收监控定时器
